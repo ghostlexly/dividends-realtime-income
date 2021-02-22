@@ -1,5 +1,5 @@
 $(function() {
-    if (window.$amount !== null) {
+    if (window.$amount !== null && window.$amount !== undefined) {
         let $dividend_monthly = (window.$amount / 12);
         let $dividend_dayly = $dividend_monthly / 31;
         let $dividend_hourly = $dividend_dayly / 24;

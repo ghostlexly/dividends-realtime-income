@@ -9,7 +9,6 @@ window.addEventListener('load', function() {
 	"use strict";
 
 	var	$body = document.querySelector('body');
-	console.log($body);
 
 	// Methods/polyfills.
 
