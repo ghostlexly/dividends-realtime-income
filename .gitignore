@@ -1,0 +1,10 @@
+*.Dockerfile
+*.docker
+phpfpm_docker/project-files/
+nginx_docker/project-files/
+.idea/
+.php_cs.cache
+logs/nginx/access.log
+logs/nginx/error.log
+saves/
+export.tar
