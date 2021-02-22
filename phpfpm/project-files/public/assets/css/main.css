@@ -885,3 +885,16 @@ button,
       left: auto;
       margin: 1em 0 0 0;
       position: relative; } }
+
+.alert {
+  color: red;
+}
+
+.calculations {
+  margin-bottom: 10px;
+}
+
+.calculations p {
+  display: block;
+  margin-bottom: 0;
+}

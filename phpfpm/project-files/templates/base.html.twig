@@ -16,18 +16,13 @@
 
         {% block javascripts %}
             <script src="/assets/js/main.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script src="/assets/js/income_calc.js"></script>
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
 
     <body class="is-preload">
-        <!-- Header -->
-        <header id="header">
-            <h1>Eventually</h1>
-            <p>A simple template for telling the world when you'll launch<br />
-                your next big thing. Brought to you by <a href="http://html5up.net">HTML5 UP</a>.</p>
-        </header>
-
         {% block body %}{% endblock %}
 
         <!-- Footer -->

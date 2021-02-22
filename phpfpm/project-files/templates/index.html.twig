@@ -1,9 +1,41 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <!-- Signup Form -->
-    <form id="signup-form" method="post" action="#">
-        <input type="email" name="email" id="email" placeholder="Email Address" />
-        <input type="submit" value="Sign Up" />
+    <!-- Header -->
+    <header id="header">
+        <h1 id="dividend_rt">0.0000 $</h1>
+        <p>Calculate your real time dividend income<br />
+            from 0$.</p>
+
+        {% if amount is defined %}
+            <div class="calculations">
+                <p id="dividend_rt_second">Per second: 0.00 $</p>
+                <p id="dividend_rt_minute">Per minute: 0.00 $</p>
+                <p id="dividend_rt_hour">Per hour: 0.00 $</p>
+                <p id="dividend_rt_day">Per day: 0.00 $</p>
+                <p id="dividend_rt_month">Per month: 0.00 $</p>
+                <p id="dividend_rt_quarter">Quarterly: 0.00 $</p>
+            </div>
+        {% endif %}
+    </header>
+
+    <!-- Income Form -->
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message | raw }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    <form id="signup-form" method="post" action="/">
+        <input type="text" name="income" id="income" placeholder="Type your annual income here" value="{% if amount is defined %}{{ amount }}{% endif %}" />
+        <input type="submit" value="Go" />
     </form>
+
+    {% if amount is defined %}
+        <script>
+            window.$amount = {{ amount }}
+        </script>
+    {% endif %}
 {% endblock %}
