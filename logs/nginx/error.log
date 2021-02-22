@@ -1,0 +1,18 @@
+2021/02/22 17:23:49 [warn] 1#1: conflicting server name "nginx" on 0.0.0.0:80, ignored
+2021/02/22 17:23:49 [warn] 1#1: conflicting server name "192.168.1.26" on 0.0.0.0:80, ignored
+2021/02/22 17:23:49 [warn] 1#1: conflicting server name "nginx" on [::]:80, ignored
+2021/02/22 17:23:49 [warn] 1#1: conflicting server name "192.168.1.26" on [::]:80, ignored
+2021/02/22 17:25:29 [error] 20#20: *1 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:25:29 [error] 20#20: *1 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:25:30 [error] 20#20: *2 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:25:30 [error] 20#20: *2 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:25 [error] 19#19: *1 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:25 [error] 19#19: *1 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:25 [error] 19#19: *2 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:25 [error] 19#19: *2 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:26 [error] 19#19: *3 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:26 [error] 19#19: *3 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:26 [error] 19#19: *4 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:26 [error] 19#19: *4 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:26 [error] 19#19: *5 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"
+2021/02/22 17:26:26 [error] 19#19: *5 could not find named location "@nodejs", client: 10.0.2.2, server: nginx, request: "GET / HTTP/1.1", host: "192.168.1.26"

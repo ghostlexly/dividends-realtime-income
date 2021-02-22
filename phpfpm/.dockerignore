@@ -1,0 +1,4 @@
+# THIS FILE SHOULD BE ALWAYS INSIDE THE CONTEXT FOLDER DEFINED IN DOCKER-COMPOSE
+# ignore project files for building the dockers images. We do not need these files. 
+# They are mounted after the docker services are ran.
+project-files

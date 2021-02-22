@@ -1,0 +1,39 @@
+version: '2.0'
+
+# HELP :
+#   start with "docker-compose build" to rebuild Dockerfiles if the images are not found.
+#   start with "docker-compose up -d" to run in the background
+
+services:
+#00 ===================================================================================================================================================================================
+  phpfpm:
+    container_name: phpfpm
+    image: phpfpm_image # you should load the phpfpm.docker image first
+    build: ./phpfpm
+    volumes:
+      - ./phpfpm/project-files:/var/www/html:z
+      - ./logs/php:/var/log/phpfpm-logs:z
+    networks:
+      main: # This hostname phpfpm (container name and service name) will be accessible on others containers
+    restart: always
+#00 ===================================================================================================================================================================================
+  nginx:
+    container_name: nginx
+    image: nginx_image
+    build: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./phpfpm/project-files:/var/www/html:ro
+      - ./logs/nginx:/var/log/nginx:z
+      - ./nginx/nginx_confs:/etc/nginx/conf.d/:z
+    depends_on:
+      - phpfpm # loads phpfpm before nginx to make host [phpfpm] available
+    networks:
+      main: # put this host in the same network as phpfpm
+    restart: always
+#00 ===================================================================================================================================================================================
+# available shared networks, make nginx access phpfpm with [ping phpfpm] hostname.
+networks:
+  main:
