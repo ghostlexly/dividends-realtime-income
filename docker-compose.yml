@@ -6,34 +6,32 @@ version: '2.0'
 
 services:
 #00 ===================================================================================================================================================================================
-  phpfpm:
-    container_name: phpfpm
+  phpfpm_dividends_realtime:
+    container_name: phpfpm_dividends_realtime
     image: phpfpm_image # you should load the phpfpm.docker image first
     build: ./phpfpm
     volumes:
       - ./phpfpm/project-files:/var/www/html:z
       - ./logs/php:/var/log/phpfpm-logs:z
-    networks:
-      main: # This hostname phpfpm (container name and service name) will be accessible on others containers
     restart: always
 #00 ===================================================================================================================================================================================
-  nginx:
-    container_name: nginx
-    image: nginx_image
-    build: ./nginx
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./phpfpm/project-files:/var/www/html:ro
-      - ./logs/nginx:/var/log/nginx:z
-      - ./nginx/nginx_confs:/etc/nginx/conf.d/:z
-    depends_on:
-      - phpfpm # loads phpfpm before nginx to make host [phpfpm] available
-    networks:
-      main: # put this host in the same network as phpfpm
-    restart: always
+  apache_dividends_realtime:
+      container_name: apache_dividends_realtime
+      image: bitnami/apache:2.4.46-debian-10-r171
+      ports:
+          - "8080:8080"
+          - "8443:8443"
+      volumes:
+          - ./phpfpm/project-files:/app:ro
+          - ./apache/vhosts:/opt/bitnami/apache/conf/vhosts:ro
+          - ./apache/conf/httpd.conf:/opt/bitnami/apache/conf/httpd.conf:ro
+          - ./logs/apache:/var/log/apache2:z
+      depends_on:
+          - phpfpm_dividends_realtime # loads phpfpm before nginx to make host [phpfpm] available
+      restart: always
 #00 ===================================================================================================================================================================================
 # available shared networks, make nginx access phpfpm with [ping phpfpm] hostname.
 networks:
-  main:
+  default:
+    external:
+      name: ghostlexly-network
